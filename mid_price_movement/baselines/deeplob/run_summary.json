@@ -1,0 +1,106 @@
+{
+  "model": "DeepLOB",
+  "total_parameters": 126049,
+  "batch_size": 128,
+  "lr": 0.001,
+  "batch_config": "blas",
+  "coin": "BTC",
+  "total_ticks": 11918929,
+  "n_trained": 4137857,
+  "split_tick": 8343250,
+  "elapsed_sec": 71004.28,
+  "floating_point_precision": "IEEE 754 32-bit Single Precision",
+  "tps": 167.9,
+  "horizons": {
+    "1": {
+      "da_nz_online": 0.7762071043054412,
+      "da_all_online": 0.2694745034327473,
+      "da_pa_nz_full": 0.7762071043054412,
+      "da_pa_nz_first70": 0.7592839685801739,
+      "da_pa_nz_last30": 0.8199107033861546,
+      "da_pa_all_full": 0.2694745034327473,
+      "n_pa_nz_full": 4137857
+    },
+    "2": {
+      "da_nz_online": 0.7736874564383659,
+      "da_all_online": 0.4092287042454835,
+      "da_pa_nz_full": 0.7736874564383659,
+      "da_pa_nz_first70": 0.7574193602499264,
+      "da_pa_nz_last30": 0.8152421556848416,
+      "da_pa_all_full": 0.4092287042454835,
+      "n_pa_nz_full": 6304286
+    },
+    "3": {
+      "da_nz_online": 0.7654890116814985,
+      "da_all_online": 0.47748516911450634,
+      "da_pa_nz_full": 0.7654890116814985,
+      "da_pa_nz_first70": 0.7493761204396348,
+      "da_pa_nz_last30": 0.806219147804408,
+      "da_pa_all_full": 0.47748516911450634,
+      "n_pa_nz_full": 7434577
+    },
+    "5": {
+      "da_nz_online": 0.7497303055488738,
+      "da_all_online": 0.5400023911652736,
+      "da_pa_nz_full": 0.7497303055488738,
+      "da_pa_nz_first70": 0.7337501456672441,
+      "da_pa_nz_last30": 0.7895678015996016,
+      "da_pa_all_full": 0.5400023911652736,
+      "n_pa_nz_full": 8584715
+    },
+    "10": {
+      "da_nz_online": 0.7228087787934705,
+      "da_all_online": 0.5942913212410237,
+      "da_pa_nz_full": 0.7228087787934705,
+      "da_pa_nz_first70": 0.7072035044339462,
+      "da_pa_nz_last30": 0.7611675536203838,
+      "da_pa_all_full": 0.5942913212410237,
+      "n_pa_nz_full": 9799661
+    },
+    "20": {
+      "da_nz_online": 0.6904780964699598,
+      "da_all_online": 0.6238090723441672,
+      "da_pa_nz_full": 0.6904780964699598,
+      "da_pa_nz_first70": 0.6753598116301692,
+      "da_pa_nz_last30": 0.7271830433984001,
+      "da_pa_all_full": 0.6238090723441672,
+      "n_pa_nz_full": 10768036
+    },
+    "50": {
+      "da_nz_online": 0.6393502174517944,
+      "da_all_online": 0.6190182257822286,
+      "da_pa_nz_full": 0.6393502174517944,
+      "da_pa_nz_first70": 0.6261780619143859,
+      "da_pa_nz_last30": 0.6706471277108955,
+      "da_pa_all_full": 0.6190182257822286,
+      "n_pa_nz_full": 11539799
+    },
+    "100": {
+      "da_nz_online": 0.6004920541637141,
+      "da_all_online": 0.592476327275107,
+      "da_pa_nz_full": 0.6004920541637141,
+      "da_pa_nz_first70": 0.59097925283435,
+      "da_pa_nz_last30": 0.6228391825198527,
+      "da_pa_all_full": 0.592476327275107,
+      "n_pa_nz_full": 11759681
+    },
+    "200": {
+      "da_nz_online": 0.5686813363157769,
+      "da_all_online": 0.5649251427171466,
+      "da_pa_nz_full": 0.5686813363157769,
+      "da_pa_nz_first70": 0.5622298718914845,
+      "da_pa_nz_last30": 0.5837698091989015,
+      "da_pa_all_full": 0.5649251427171466,
+      "n_pa_nz_full": 11839956
+    },
+    "500": {
+      "da_nz_online": 0.5407601655066399,
+      "da_all_online": 0.5388381642471544,
+      "da_pa_nz_full": 0.5407601655066399,
+      "da_pa_nz_first70": 0.5363249065832362,
+      "da_pa_nz_last30": 0.551118282197217,
+      "da_pa_all_full": 0.5388381642471544,
+      "n_pa_nz_full": 11876019
+    }
+  }
+}

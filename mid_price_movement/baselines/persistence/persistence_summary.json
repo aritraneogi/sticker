@@ -1,0 +1,86 @@
+{
+  "coin": "BTC",
+  "total_trades": 11918929,
+  "horizons": {
+    "h1": {
+      "h": 1,
+      "da_nz_persistence": 0.7268194647547693,
+      "da_all_persistence": 0.252329005790538,
+      "mcc_persistence": 0.5278804987055684,
+      "n_nz": 4137879,
+      "n_total": 11918927
+    },
+    "h2": {
+      "h": 2,
+      "da_nz_persistence": 0.8320133127738896,
+      "da_all_persistence": 0.4400798729751215,
+      "mcc_persistence": 0.6923041502744776,
+      "n_nz": 6304321,
+      "n_total": 11918925
+    },
+    "h3": {
+      "h": 3,
+      "da_nz_persistence": 0.8625385998312219,
+      "da_all_persistence": 0.5380221853937642,
+      "mcc_persistence": 0.7401130691547587,
+      "n_nz": 7434618,
+      "n_total": 11918923
+    },
+    "h5": {
+      "h": 5,
+      "da_nz_persistence": 0.8691164189932414,
+      "da_all_persistence": 0.6259925921134291,
+      "mcc_persistence": 0.7457630443178082,
+      "n_nz": 8584759,
+      "n_total": 11918919
+    },
+    "h10": {
+      "h": 10,
+      "da_nz_persistence": 0.8346470810330928,
+      "da_all_persistence": 0.686244940707241,
+      "mcc_persistence": 0.6726036096203081,
+      "n_nz": 9799700,
+      "n_total": 11918909
+    },
+    "h20": {
+      "h": 20,
+      "da_nz_persistence": 0.7684260821233898,
+      "da_all_persistence": 0.6942309807566795,
+      "mcc_persistence": 0.5377277676042528,
+      "n_nz": 10768065,
+      "n_total": 11918889
+    },
+    "h50": {
+      "h": 50,
+      "da_nz_persistence": 0.6638577209063798,
+      "da_all_persistence": 0.6427463637577148,
+      "mcc_persistence": 0.3276183313888954,
+      "n_nz": 11539798,
+      "n_total": 11918829
+    },
+    "h100": {
+      "h": 100,
+      "da_nz_persistence": 0.5979366697761749,
+      "da_all_persistence": 0.5899550195327036,
+      "mcc_persistence": 0.19580560091345905,
+      "n_nz": 11759630,
+      "n_total": 11918729
+    },
+    "h200": {
+      "h": 200,
+      "da_nz_persistence": 0.5556077992838564,
+      "da_all_persistence": 0.5519379111298047,
+      "mcc_persistence": 0.11119041376800413,
+      "n_nz": 11839805,
+      "n_total": 11918529
+    },
+    "h500": {
+      "h": 500,
+      "da_nz_persistence": 0.5223476028811757,
+      "da_all_persistence": 0.5204910181961984,
+      "mcc_persistence": 0.04466017053718001,
+      "n_nz": 11875569,
+      "n_total": 11917929
+    }
+  }
+}

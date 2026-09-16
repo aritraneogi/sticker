@@ -1,0 +1,102 @@
+{
+  "model": "Sticker_E56_N32_BS256_Orthogonal_Plasticity_0_01_L2_1e6",
+  "total_parameters": 102176,
+  "n_experts": 56,
+  "expert_dim": 32,
+  "batch_size": 256,
+  "batch_config": "blas",
+  "coin": "BTC",
+  "init": "orthogonal",
+  "plasticity": 0.01,
+  "lr": 0.001,
+  "l2_lambda": 1e-06,
+  "total_ticks": 11918929,
+  "n_trained": 4137858,
+  "elapsed_sec": 6132.359279870987,
+  "tps": 1943.6,
+  "split_tick": 8343250,
+  "floating_point_precision": "IEEE 754 64-bit Double Precision",
+  "horizons": {
+    "1": {
+      "da_nz_full": 0.9285132376493436,
+      "da_nz_first70": 0.9241022787084748,
+      "da_nz_last30": 0.9399044351344168,
+      "da_all_full": 0.322350365332176,
+      "n_full": 11918879,
+      "n_nz_full": 4137857
+    },
+    "2": {
+      "da_nz_full": 0.9203053287874313,
+      "da_nz_first70": 0.9158467077192424,
+      "da_nz_last30": 0.9316942863763501,
+      "da_all_full": 0.4867797119829568,
+      "n_full": 11918878,
+      "n_nz_full": 6304286
+    },
+    "3": {
+      "da_nz_full": 0.9100384594846486,
+      "da_nz_first70": 0.9053401912842702,
+      "da_nz_last30": 0.9219147329895651,
+      "da_all_full": 0.5676500395129508,
+      "n_full": 11918877,
+      "n_nz_full": 7434577
+    },
+    "5": {
+      "da_nz_full": 0.8910450725504574,
+      "da_nz_first70": 0.885858574977746,
+      "da_nz_last30": 0.9039746726358434,
+      "da_all_full": 0.6417860746085515,
+      "n_full": 11918875,
+      "n_nz_full": 8584715
+    },
+    "10": {
+      "da_nz_full": 0.8551525404807371,
+      "da_nz_first70": 0.8491377305476869,
+      "da_nz_last30": 0.8699373327588513,
+      "da_all_full": 0.7031039855288295,
+      "n_full": 11918870,
+      "n_nz_full": 9799661
+    },
+    "20": {
+      "da_nz_full": 0.8077144244317163,
+      "da_nz_first70": 0.8006326196956245,
+      "da_nz_last30": 0.824907992997886,
+      "da_all_full": 0.7297256616824093,
+      "n_full": 11918860,
+      "n_nz_full": 10768036
+    },
+    "50": {
+      "da_nz_full": 0.727772034850867,
+      "da_nz_first70": 0.7204634011861206,
+      "da_nz_last30": 0.7451372755871004,
+      "da_all_full": 0.704628138835775,
+      "n_full": 11918830,
+      "n_nz_full": 11539799
+    },
+    "100": {
+      "da_nz_full": 0.6652507835884324,
+      "da_nz_first70": 0.6598932745198736,
+      "da_nz_last30": 0.6778364498584398,
+      "da_all_full": 0.65637061846934,
+      "n_full": 11918780,
+      "n_nz_full": 11759681
+    },
+    "200": {
+      "da_nz_full": 0.6143250870189044,
+      "da_nz_first70": 0.6104133835719668,
+      "da_nz_last30": 0.6234736504309112,
+      "da_all_full": 0.6102674121630919,
+      "n_full": 11918680,
+      "n_nz_full": 11839956
+    },
+    "500": {
+      "da_nz_full": 0.5687427748305219,
+      "da_nz_first70": 0.566376771647483,
+      "da_nz_last30": 0.5742683455995417,
+      "da_all_full": 0.5667213161520274,
+      "n_full": 11918380,
+      "n_nz_full": 11876019
+    }
+  },
+  "model_name": "Sticker_E56_N32_BS256_Orthogonal_Plasticity_0_01_LR_0_001_L2_1e6"
+}

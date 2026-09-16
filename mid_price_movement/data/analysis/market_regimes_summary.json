@@ -1,0 +1,53 @@
+{
+  "regimes": [
+    {
+      "state": 0,
+      "regime_name": "Low-Vol Consolidation",
+      "sample_count_binned": 14428,
+      "pct_time_spent": 24.21,
+      "mean_volatility_bps": 4.2281,
+      "mean_ofi_signed_vol": -0.0058,
+      "transition_self_prob": 0.8877
+    },
+    {
+      "state": 1,
+      "regime_name": "Moderate Trend",
+      "sample_count_binned": 40535,
+      "pct_time_spent": 68.02,
+      "mean_volatility_bps": 4.4543,
+      "mean_ofi_signed_vol": -0.0001,
+      "transition_self_prob": 0.9599
+    },
+    {
+      "state": 2,
+      "regime_name": "High-Vol Extreme Shock",
+      "sample_count_binned": 4632,
+      "pct_time_spent": 7.77,
+      "mean_volatility_bps": 5.8583,
+      "mean_ofi_signed_vol": 0.0148,
+      "transition_self_prob": 0.8871
+    }
+  ],
+  "transition_matrix": [
+    [
+      0.8877183254776214,
+      0.09509287496527925,
+      0.017188799556406162
+    ],
+    [
+      0.033305373266878845,
+      0.959910198845177,
+      0.006784427887697542
+    ],
+    [
+      0.05829015544028867,
+      0.05462003454219642,
+      0.887089810015356
+    ]
+  ],
+  "state_labels": {
+    "0": "Low-Vol Consolidation",
+    "1": "Moderate Trend",
+    "2": "High-Vol Extreme Shock"
+  }
+}

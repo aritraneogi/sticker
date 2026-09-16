@@ -1,0 +1,113 @@
+{
+  "model": "Sticker_E56_N64",
+  "batch_size": 128,
+  "batch_config": "blas",
+  "coin": "BTC",
+  "total_ticks": 11918929,
+  "split_tick_70_exact": 8343250,
+  "tps": 1949.0,
+  "hyperparams": {
+    "n_experts": 56,
+    "expert_dim": 64,
+    "plasticity": 0.005,
+    "l2_lambda": 0.0005
+  },
+  "horizons": {
+    "h1": {
+      "da_nz_online": 0.9280649379618484,
+      "da_all_online": 0.3221947298902858,
+      "da_pa_nz_full": 0.9280649379618484,
+      "da_pa_nz_first70": 0.927821900678215,
+      "da_pa_nz_last30": 0.9286925760177035,
+      "da_pa_all_full": 0.3221947298902858,
+      "n_pa_nz_full": 4137857
+    },
+    "h2": {
+      "da_nz_online": 0.9193440779812337,
+      "da_all_online": 0.4862712748632883,
+      "da_pa_nz_full": 0.9193440779812337,
+      "da_pa_nz_first70": 0.9191570765368836,
+      "da_pa_nz_last30": 0.9198217484282616,
+      "da_pa_all_full": 0.4862712748632883,
+      "n_pa_nz_full": 6304286
+    },
+    "h3": {
+      "da_nz_online": 0.9088885621871964,
+      "da_all_online": 0.5669327739517741,
+      "da_pa_nz_full": 0.9088885621871964,
+      "da_pa_nz_first70": 0.9086040378063317,
+      "da_pa_nz_last30": 0.9096077823810742,
+      "da_pa_all_full": 0.5669327739517741,
+      "n_pa_nz_full": 7434577
+    },
+    "h5": {
+      "da_nz_online": 0.8897624440648292,
+      "da_all_online": 0.6408622458075951,
+      "da_pa_nz_full": 0.8897624440648292,
+      "da_pa_nz_first70": 0.8891613451198943,
+      "da_pa_nz_last30": 0.8912609445192875,
+      "da_pa_all_full": 0.6408622458075951,
+      "n_pa_nz_full": 8584715
+    },
+    "h10": {
+      "da_nz_online": 0.853746063256678,
+      "da_all_online": 0.701947583957204,
+      "da_pa_nz_full": 0.853746063256678,
+      "da_pa_nz_first70": 0.8522749132763425,
+      "da_pa_nz_last30": 0.857362245166217,
+      "da_pa_all_full": 0.701947583957204,
+      "n_pa_nz_full": 9799661
+    },
+    "h20": {
+      "da_nz_online": 0.8062200943607544,
+      "da_all_online": 0.7283756164599634,
+      "da_pa_nz_full": 0.8062200943607544,
+      "da_pa_nz_first70": 0.8034114103624648,
+      "da_pa_nz_last30": 0.8130391613507242,
+      "da_pa_all_full": 0.7283756164599634,
+      "n_pa_nz_full": 10768036
+    },
+    "h50": {
+      "da_nz_online": 0.7261793727949681,
+      "da_all_online": 0.703086125064289,
+      "da_pa_nz_full": 0.7261793727949681,
+      "da_pa_nz_first70": 0.7226310769722525,
+      "da_pa_nz_last30": 0.7346100883009375,
+      "da_pa_all_full": 0.703086125064289,
+      "n_pa_nz_full": 11539799
+    },
+    "h100": {
+      "da_nz_online": 0.6635116207659034,
+      "da_all_online": 0.6546546710317667,
+      "da_pa_nz_full": 0.6635116207659034,
+      "da_pa_nz_first70": 0.6614207126379592,
+      "da_pa_nz_last30": 0.6684235064132815,
+      "da_pa_all_full": 0.6546546710317667,
+      "n_pa_nz_full": 11759681
+    },
+    "h200": {
+      "da_nz_online": 0.6128607234689047,
+      "da_all_online": 0.6088127208717744,
+      "da_pa_nz_full": 0.6128607234689047,
+      "da_pa_nz_first70": 0.611402562170309,
+      "da_pa_nz_last30": 0.6162710231723707,
+      "da_pa_all_full": 0.6088127208717744,
+      "n_pa_nz_full": 11839956
+    },
+    "h500": {
+      "da_nz_online": 0.567934423142974,
+      "da_all_online": 0.565915837555104,
+      "da_pa_nz_full": 0.567934423142974,
+      "da_pa_nz_first70": 0.5671140762034503,
+      "da_pa_nz_last30": 0.5698502637901811,
+      "da_pa_all_full": 0.565915837555104,
+      "n_pa_nz_full": 11876019
+    }
+  },
+  "model_name": "Sticker_E56_N64_BS128_Vanilla_Plasticity_0_005_LR_0_005_L2_5e4",
+  "n_experts": 56,
+  "expert_dim": 64,
+  "floating_point_precision": "IEEE 754 64-bit Double Precision",
+  "total_parameters": 204352,
+  "elapsed_sec": 6115.26
+}

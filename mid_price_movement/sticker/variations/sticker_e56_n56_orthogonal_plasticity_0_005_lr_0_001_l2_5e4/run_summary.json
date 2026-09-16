@@ -1,0 +1,101 @@
+{
+  "model": "Sticker_E56_N56_Orthogonal",
+  "total_parameters": 178808,
+  "n_experts": 56,
+  "expert_dim": 56,
+  "batch_size": 1,
+  "batch_config": "blas",
+  "coin": "BTC",
+  "init": "orthogonal",
+  "plasticity": 0.005,
+  "l2_lambda": 0.0005,
+  "total_ticks": 11918929,
+  "n_trained": 4137858,
+  "elapsed_sec": 49260.88396072388,
+  "tps": 242.0,
+  "split_tick": 8343250,
+  "floating_point_precision": "IEEE 754 64-bit Double Precision",
+  "horizons": {
+    "1": {
+      "da_nz_full": 0.9125126847061172,
+      "da_nz_first70": 0.9089183761729632,
+      "da_nz_last30": 0.9217949017642012,
+      "da_all_full": 0.3167954805145685,
+      "n_full": 11918879,
+      "n_nz_full": 4137857
+    },
+    "2": {
+      "da_nz_full": 0.9053061678991087,
+      "da_nz_first70": 0.9016051470297728,
+      "da_nz_last30": 0.9147599360197737,
+      "da_all_full": 0.4788461632042882,
+      "n_full": 11918878,
+      "n_nz_full": 6304286
+    },
+    "3": {
+      "da_nz_full": 0.8955079757732014,
+      "da_nz_first70": 0.8915925025576528,
+      "da_nz_last30": 0.905405501590328,
+      "da_all_full": 0.5585864339400431,
+      "n_full": 11918877,
+      "n_nz_full": 7434577
+    },
+    "5": {
+      "da_nz_full": 0.8770519463954249,
+      "da_nz_first70": 0.8727020074170333,
+      "da_nz_last30": 0.8878960604816545,
+      "da_all_full": 0.6317073549307296,
+      "n_full": 11918875,
+      "n_nz_full": 8584715
+    },
+    "10": {
+      "da_nz_full": 0.8419220828149055,
+      "da_nz_first70": 0.8367520820281478,
+      "da_nz_last30": 0.8546302795095165,
+      "da_all_full": 0.6922259408819795,
+      "n_full": 11918870,
+      "n_nz_full": 9799661
+    },
+    "20": {
+      "da_nz_full": 0.7956810322699516,
+      "da_nz_first70": 0.7894298699870023,
+      "da_nz_last30": 0.8108579245079404,
+      "da_all_full": 0.7188541521588474,
+      "n_full": 11918860,
+      "n_nz_full": 10768036
+    },
+    "50": {
+      "da_nz_full": 0.7182410196226121,
+      "da_nz_first70": 0.7116389106484164,
+      "da_nz_last30": 0.733927564736614,
+      "da_all_full": 0.6954002196524324,
+      "n_full": 11918830,
+      "n_nz_full": 11539799
+    },
+    "100": {
+      "da_nz_full": 0.6579475242568229,
+      "da_nz_first70": 0.6531764990570352,
+      "da_nz_last30": 0.6691554438631032,
+      "da_all_full": 0.6491648474088791,
+      "n_full": 11918780,
+      "n_nz_full": 11759681
+    },
+    "200": {
+      "da_nz_full": 0.6092034463641588,
+      "da_nz_first70": 0.6056836774679729,
+      "da_nz_last30": 0.6174353661349623,
+      "da_all_full": 0.6051796004255505,
+      "n_full": 11918680,
+      "n_nz_full": 11839956
+    },
+    "500": {
+      "da_nz_full": 0.5656309576466659,
+      "da_nz_first70": 0.5634571370022743,
+      "da_nz_last30": 0.5707077047515935,
+      "da_all_full": 0.5636205591699543,
+      "n_full": 11918380,
+      "n_nz_full": 11876019
+    }
+  },
+  "model_name": "Sticker_E56_N56_Orthogonal_Plasticity_0_005_LR_0_001_L2_5e4"
+}

@@ -1,0 +1,4 @@
+state,regime_name,sample_count_binned,pct_time_spent,mean_volatility_bps,mean_ofi_signed_vol,transition_self_prob
+0,Low-Vol Consolidation,14428,24.21,4.2281,-0.0058,0.8877
+1,Moderate Trend,40535,68.02,4.4543,-0.0001,0.9599
+2,High-Vol Extreme Shock,4632,7.77,5.8583,0.0148,0.8871

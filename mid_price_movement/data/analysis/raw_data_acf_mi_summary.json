@@ -1,0 +1,176 @@
+{
+  "acf_lags_1_to_20": [
+    {
+      "lag": 1,
+      "acf_returns": 0.046233,
+      "acf_order_flow_imbalance": 0.217277,
+      "acf_trade_direction": 0.707877
+    },
+    {
+      "lag": 2,
+      "acf_returns": 0.053524,
+      "acf_order_flow_imbalance": 0.175821,
+      "acf_trade_direction": 0.624498
+    },
+    {
+      "lag": 3,
+      "acf_returns": 0.055019,
+      "acf_order_flow_imbalance": 0.168775,
+      "acf_trade_direction": 0.579064
+    },
+    {
+      "lag": 4,
+      "acf_returns": 0.048855,
+      "acf_order_flow_imbalance": 0.160176,
+      "acf_trade_direction": 0.547084
+    },
+    {
+      "lag": 5,
+      "acf_returns": 0.044046,
+      "acf_order_flow_imbalance": 0.152618,
+      "acf_trade_direction": 0.518521
+    },
+    {
+      "lag": 6,
+      "acf_returns": 0.046413,
+      "acf_order_flow_imbalance": 0.147514,
+      "acf_trade_direction": 0.49501
+    },
+    {
+      "lag": 7,
+      "acf_returns": 0.045945,
+      "acf_order_flow_imbalance": 0.144835,
+      "acf_trade_direction": 0.473072
+    },
+    {
+      "lag": 8,
+      "acf_returns": 0.036394,
+      "acf_order_flow_imbalance": 0.135737,
+      "acf_trade_direction": 0.452686
+    },
+    {
+      "lag": 9,
+      "acf_returns": 0.036821,
+      "acf_order_flow_imbalance": 0.126441,
+      "acf_trade_direction": 0.433836
+    },
+    {
+      "lag": 10,
+      "acf_returns": 0.037981,
+      "acf_order_flow_imbalance": 0.124343,
+      "acf_trade_direction": 0.418045
+    },
+    {
+      "lag": 11,
+      "acf_returns": 0.036025,
+      "acf_order_flow_imbalance": 0.123532,
+      "acf_trade_direction": 0.40368
+    },
+    {
+      "lag": 12,
+      "acf_returns": 0.036489,
+      "acf_order_flow_imbalance": 0.11667,
+      "acf_trade_direction": 0.390067
+    },
+    {
+      "lag": 13,
+      "acf_returns": 0.031939,
+      "acf_order_flow_imbalance": 0.113865,
+      "acf_trade_direction": 0.376582
+    },
+    {
+      "lag": 14,
+      "acf_returns": 0.030305,
+      "acf_order_flow_imbalance": 0.113303,
+      "acf_trade_direction": 0.364915
+    },
+    {
+      "lag": 15,
+      "acf_returns": 0.030604,
+      "acf_order_flow_imbalance": 0.103306,
+      "acf_trade_direction": 0.354314
+    },
+    {
+      "lag": 16,
+      "acf_returns": 0.029615,
+      "acf_order_flow_imbalance": 0.105982,
+      "acf_trade_direction": 0.344044
+    },
+    {
+      "lag": 17,
+      "acf_returns": 0.029911,
+      "acf_order_flow_imbalance": 0.105848,
+      "acf_trade_direction": 0.333767
+    },
+    {
+      "lag": 18,
+      "acf_returns": 0.02682,
+      "acf_order_flow_imbalance": 0.103835,
+      "acf_trade_direction": 0.324727
+    },
+    {
+      "lag": 19,
+      "acf_returns": 0.027347,
+      "acf_order_flow_imbalance": 0.094672,
+      "acf_trade_direction": 0.317293
+    },
+    {
+      "lag": 20,
+      "acf_returns": 0.0225,
+      "acf_order_flow_imbalance": 0.097177,
+      "acf_trade_direction": 0.309361
+    }
+  ],
+  "mutual_information_horizons": [
+    {
+      "horizon": 1,
+      "mi_ofi_bits": 0.009524,
+      "mi_return_bits": 0.003085
+    },
+    {
+      "horizon": 2,
+      "mi_ofi_bits": 0.012566,
+      "mi_return_bits": 0.003972
+    },
+    {
+      "horizon": 3,
+      "mi_ofi_bits": 0.013148,
+      "mi_return_bits": 0.004308
+    },
+    {
+      "horizon": 5,
+      "mi_ofi_bits": 0.012442,
+      "mi_return_bits": 0.00436
+    },
+    {
+      "horizon": 10,
+      "mi_ofi_bits": 0.009706,
+      "mi_return_bits": 0.004061
+    },
+    {
+      "horizon": 20,
+      "mi_ofi_bits": 0.006854,
+      "mi_return_bits": 0.003026
+    },
+    {
+      "horizon": 50,
+      "mi_ofi_bits": 0.00279,
+      "mi_return_bits": 0.001566
+    },
+    {
+      "horizon": 100,
+      "mi_ofi_bits": 0.00131,
+      "mi_return_bits": 0.000855
+    },
+    {
+      "horizon": 200,
+      "mi_ofi_bits": 0.000672,
+      "mi_return_bits": 0.000389
+    },
+    {
+      "horizon": 500,
+      "mi_ofi_bits": 0.000174,
+      "mi_return_bits": 0.000162
+    }
+  ]
+}
