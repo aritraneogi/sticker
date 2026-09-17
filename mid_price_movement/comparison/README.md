@@ -13,4 +13,4 @@ Primary metrics and ranking are done on last 75% split of dataset, that is 8,939
 Theoretical metrics are directly derived from core model performance metrics while realistic metrics contain additional fees and slippage considerations.
 
 > [!NOTE]
-> Same metrics might appear across different scenarios with different values, refer to scenario specific documentation and scripts for derivation and computation of each.
+> Same metrics might appear across different scenarios with different scalar values, refer to scenario specific documentation and scripts for derivation and computation of each.

@@ -39,6 +39,8 @@ Logistic Regression, Kalman Filter, ARIMA, OFI Linear Regression, GARCH, LightGB
 
 Detailed per model configuration, metrics and runtime behaviour are available in [`sticker/`](sticker/) and [`baselines/`](baselines/)
 
+Full predictions parquet files can be accessed from [`huggingface.co/aritraneogi/sticker/tree/main/mid_price_movement`](https://huggingface.co/aritraneogi/sticker/tree/main/mid_price_movement)
+
 Baselines have weights and implementation scripts included.
 
 ---

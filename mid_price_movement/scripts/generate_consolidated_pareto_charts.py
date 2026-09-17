@@ -134,6 +134,41 @@ def extract_sticker_edge(sticker_pts):
     return unique_edge
 
 
+def extract_sticker_edge_neural(sticker_pts):
+    sorted_pts = sorted(sticker_pts, key=lambda p: p[0])
+    peak_pt = max(sorted_pts, key=lambda p: p[1])
+
+    frontier = []
+    best_da = -np.inf
+    for p in sorted_pts:
+        if p[0] <= peak_pt[0]:
+            if p[1] > best_da:
+                best_da = p[1]
+                frontier.append(p)
+
+    upper_rest = [p for p in sorted_pts if p[0] > peak_pt[0]]
+    if upper_rest:
+        rev_tail = []
+        max_da = -np.inf
+        for p in reversed(sorted(upper_rest, key=lambda x: x[0])):
+            if p[1] >= max_da:
+                rev_tail.append(p)
+                max_da = p[1]
+        tail_pts = [p for p in reversed(rev_tail) if p[0] > frontier[-1][0]]
+        all_edge = frontier + tail_pts
+    else:
+        all_edge = frontier
+
+    unique_edge = []
+    last_lat = -1
+    for p in all_edge:
+        if p[0] > last_lat:
+            unique_edge.append(p)
+            last_lat = p[0]
+
+    return unique_edge
+
+
 def smooth_edge_curve(edge_pts, n=500):
     if len(edge_pts) < 2:
         return None, None
@@ -159,7 +194,10 @@ def make_chart(
 ):
     fig, ax = plt.subplots(figsize=(10.2, 5.6))
 
-    edge_pts = extract_sticker_edge(sticker_pts)
+    if neural_mode:
+        edge_pts = extract_sticker_edge_neural(sticker_pts)
+    else:
+        edge_pts = extract_sticker_edge(sticker_pts)
     curve_x, curve_y = smooth_edge_curve(edge_pts)
 
     if curve_x is not None:
@@ -236,6 +274,13 @@ def make_chart(
     print(f"  saved: {out_path.name}", flush=True)
 
 
+def is_batch_size_1(name):
+    lower = name.lower()
+    if lower == "sticker":
+        return False
+    return "_bs" not in lower
+
+
 def main():
     sticker_pts, baselines = load_data()
     print(f"Loaded {len(sticker_pts)} sticker configs, {len(baselines)} baselines", flush=True)
@@ -250,12 +295,13 @@ def main():
 
     neural_names = set(NEURAL_BASELINES.keys())
     neural_baselines = {k: v for k, v in baselines.items() if k in neural_names}
+    sticker_pts_neural = [p for p in sticker_pts if not is_batch_size_1(p[2])]
 
     make_chart(
-        sticker_pts=sticker_pts,
+        sticker_pts=sticker_pts_neural,
         comparison_models=neural_baselines,
-        out_path=GRAPHS_DIR / "pareto_sticker_vs_neural_baselines.png",
-        title_text="Pareto Frontier: Sticker vs Neural Baselines",
+        out_path=GRAPHS_DIR / "pareto_sticker_vs_neural_network_baselines.png",
+        title_text="Pareto Frontier: Sticker vs Neural Network Baselines",
         neural_mode=True,
     )
 
