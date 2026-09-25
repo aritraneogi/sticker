@@ -2,6 +2,8 @@
 
 The discriminative financial test evaluates whether models can classify real-time market price direction across transactions of limit order book dataset consisting market trade transactions over a full month, while continuously learning under a prequential (test-then-train) setting.
 
+>Neogi, Aritra, Prequential Evaluation of Continual Learning Models for Mid-Price Movement Prediction https://doi.org/10.2139/ssrn.7273201
+
 ---
 
 ## About
