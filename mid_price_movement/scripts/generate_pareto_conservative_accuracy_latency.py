@@ -29,7 +29,7 @@ rcParams.update({
     "legend.edgecolor":  "#cccccc",
     "legend.fancybox":   False,
     "figure.dpi":        150,
-    "savefig.dpi":       250,
+    "savefig.dpi":       350,
     "axes.spines.top":   False,
     "axes.spines.right": False,
     "axes.grid":         True,
@@ -45,12 +45,6 @@ NEURAL_BASELINES = {
     "TLOB":    "Transformer",
     "Mamba":   "SSM",
     "DeepLOB": "CNN-LSTM",
-}
-
-NEURAL_COLORS = {
-    "TLOB":    "#ea7500",
-    "Mamba":   "#e51c23",
-    "DeepLOB": "#7b1fa2",
 }
 
 CLASSICAL_COLOR  = "#555555"
@@ -113,41 +107,6 @@ def extract_sticker_edge(sticker_pts):
 
     upper_rest = [p for p in sorted_pts if p[0] > peak_pt[0]]
     if upper_rest:
-        max_lat = max(p[0] for p in upper_rest)
-        bins = np.logspace(np.log10(peak_pt[0]), np.log10(max_lat), 6)
-        tail_pts = []
-        for i in range(len(bins) - 1):
-            sub = [p for p in upper_rest if bins[i] < p[0] <= bins[i + 1]]
-            if sub:
-                tail_pts.append(max(sub, key=lambda p: p[1]))
-        all_edge = frontier + tail_pts
-    else:
-        all_edge = frontier
-
-    unique_edge = []
-    last_lat = -1
-    for p in all_edge:
-        if p[0] > last_lat:
-            unique_edge.append(p)
-            last_lat = p[0]
-
-    return unique_edge
-
-
-def extract_sticker_edge_neural(sticker_pts):
-    sorted_pts = sorted(sticker_pts, key=lambda p: p[0])
-    peak_pt = max(sorted_pts, key=lambda p: p[1])
-
-    frontier = []
-    best_da = -np.inf
-    for p in sorted_pts:
-        if p[0] <= peak_pt[0]:
-            if p[1] > best_da:
-                best_da = p[1]
-                frontier.append(p)
-
-    upper_rest = [p for p in sorted_pts if p[0] > peak_pt[0]]
-    if upper_rest:
         rev_tail = []
         max_da = -np.inf
         for p in reversed(sorted(upper_rest, key=lambda x: x[0])):
@@ -194,10 +153,7 @@ def make_chart(
 ):
     fig, ax = plt.subplots(figsize=(10.2, 5.6))
 
-    if neural_mode:
-        edge_pts = extract_sticker_edge_neural(sticker_pts)
-    else:
-        edge_pts = extract_sticker_edge(sticker_pts)
+    edge_pts = extract_sticker_edge(sticker_pts)
     curve_x, curve_y = smooth_edge_curve(edge_pts)
 
     if curve_x is not None:
@@ -208,16 +164,13 @@ def make_chart(
 
     for model_name, (lat_ms, da_pct) in comparison_models.items():
         if neural_mode and model_name in NEURAL_BASELINES:
-            color  = NEURAL_COLORS[model_name]
             arch   = NEURAL_BASELINES[model_name]
-            label  = f"{model_name} ({arch})"
-            marker = "s"
-            size   = 90
+            label  = f"{arch} ({model_name})"
         else:
-            color  = CLASSICAL_COLOR
             label  = model_name
-            marker = "o"
-            size   = 65
+        color  = CLASSICAL_COLOR
+        marker = "o"
+        size   = 65
 
         ax.scatter(lat_ms, da_pct, color=color, s=size, marker=marker,
                    zorder=5, linewidths=0.6, edgecolors="#ffffff")
@@ -258,50 +211,75 @@ def make_chart(
         peak_idx = int(np.argmax(curve_y))
         peak_x = float(curve_x[peak_idx])
         peak_y = float(curve_y[peak_idx])
-        ax.text(peak_x, peak_y + 0.85, "Sticker",
+        ax.text(peak_x, peak_y + 1.60, "Sticker",
                 ha="center", va="bottom",
                 fontsize=10.5, fontweight="bold", fontfamily="Times New Roman",
                 color=STICKER_FRONTIER, zorder=6)
 
-    ax.set_xlabel("Per-Tick Inference Latency (ms, log scale)", labelpad=6)
+    ax.set_xlabel("Per-Tick Inference Latency (ms, log scale) (\u2190 Better)", labelpad=6)
     ax.set_ylabel("NZ Directional Accuracy h=1 (%)", labelpad=6)
 
     fig.subplots_adjust(left=0.09, right=0.96, top=0.90, bottom=0.11)
     place_title(fig, title_text, y=0.960)
 
-    fig.savefig(out_path, dpi=250, bbox_inches="tight")
+    fig.savefig(out_path, dpi=350, bbox_inches="tight")
     plt.close(fig)
     print(f"  saved: {out_path.name}", flush=True)
 
 
-def is_batch_size_1(name):
-    lower = name.lower()
-    if lower == "sticker":
-        return False
-    return "_bs" not in lower
+MANUSCRIPT_FIGS_DIR = SCRIPT_DIR.parent / "manuscript" / "figures"
+PAPER_FIGS_DIR = SCRIPT_DIR.parent.parent / "paper" / "figures"
+
+
+def crop_edge_to_edge(src_path: Path, dst_path: Path):
+    from PIL import Image
+    im = Image.open(src_path).convert("RGB")
+    arr = np.array(im)
+    # Exclude title headline in top rows (rows 0..120)
+    content = arr[120:, :, :]
+    mask = ~np.all(content >= 253, axis=2)
+    rows = np.any(mask, axis=1)
+    cols = np.any(mask, axis=0)
+    if rows.any() and cols.any():
+        rmin, rmax = np.where(rows)[0][[0, -1]]
+        cmin, cmax = np.where(cols)[0][[0, -1]]
+        cropped = im.crop((cmin, rmin + 120, cmax + 1, rmax + 120 + 1))
+    else:
+        cropped = im
+    dst_path.parent.mkdir(parents=True, exist_ok=True)
+    cropped.save(dst_path, dpi=(350, 350))
+    print(f"  saved edge-to-edge cropped: {dst_path} ({cropped.size})", flush=True)
 
 
 def main():
     sticker_pts, baselines = load_data()
     print(f"Loaded {len(sticker_pts)} sticker configs, {len(baselines)} baselines", flush=True)
 
+    chart1_path = GRAPHS_DIR / "pareto_conservative_sticker_all_baselines_accuracy_latency.png"
     make_chart(
         sticker_pts=sticker_pts,
         comparison_models=baselines,
-        out_path=GRAPHS_DIR / "pareto_sticker_vs_all_baselines.png",
-        title_text="Pareto Frontier: Sticker vs All Baselines",
+        out_path=chart1_path,
+        title_text="All Baselines in Mid-Price Movement (Continual Learning)",
         neural_mode=False,
     )
 
+    # Save edge-to-edge cropped copy of conservative accuracy vs latency as Figure 4 in the paper
+    crop_edge_to_edge(chart1_path, MANUSCRIPT_FIGS_DIR / "pareto_sticker_all_baselines_accuracy_latency.png")
+    crop_edge_to_edge(chart1_path, MANUSCRIPT_FIGS_DIR / "pareto_conservative_sticker_all_baselines_accuracy_latency.png")
+    if PAPER_FIGS_DIR.exists():
+        crop_edge_to_edge(chart1_path, PAPER_FIGS_DIR / "pareto_sticker_all_baselines_accuracy_latency.png")
+        crop_edge_to_edge(chart1_path, PAPER_FIGS_DIR / "pareto_conservative_sticker_all_baselines_accuracy_latency.png")
+
     neural_names = set(NEURAL_BASELINES.keys())
     neural_baselines = {k: v for k, v in baselines.items() if k in neural_names}
-    sticker_pts_neural = [p for p in sticker_pts if not is_batch_size_1(p[2])]
 
+    chart2_path = GRAPHS_DIR / "pareto_conservative_sticker_neural_networks_accuracy_latency.png"
     make_chart(
-        sticker_pts=sticker_pts_neural,
+        sticker_pts=sticker_pts,
         comparison_models=neural_baselines,
-        out_path=GRAPHS_DIR / "pareto_sticker_vs_neural_network_baselines.png",
-        title_text="Pareto Frontier: Sticker vs Neural Network Baselines",
+        out_path=chart2_path,
+        title_text="Neural Networks in Mid-Price Movement (Continual Learning)",
         neural_mode=True,
     )
 

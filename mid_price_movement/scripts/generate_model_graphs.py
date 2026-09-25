@@ -173,7 +173,7 @@ def graph_cumulative_multi_horizon_full_da_curves(m, summary, out_path):
     plt.close(fig)
 
 
-def graph_da_vs_horizon_bar(summary, out_path):
+def graph_75_pct_da_vs_horizon_bar(summary, out_path):
     model_name, param_str = format_model_label(summary)
 
     horizons_data = summary.get("horizons", {})
@@ -375,8 +375,8 @@ def generate_for_model(model_dir: Path, eval_root: Path):
         m, summary, graphs_dir / "cumulative_running_avg_full_da_h1.png")
     graph_cumulative_multi_horizon_full_da_curves(
         m, summary, graphs_dir / "cumulative_multi_horizon_full_da_curves.png")
-    graph_da_vs_horizon_bar(
-        summary, graphs_dir / "da_vs_horizon_bar.png")
+    graph_75_pct_da_vs_horizon_bar(
+        summary, graphs_dir / "75_pct_da_vs_horizon_bar.png")
     graph_cumulative_running_avg_loss_vs_da_trajectory(
         m, summary, model_dir, graphs_dir / "cumulative_running_avg_loss_vs_da_trajectory.png")
     generate_last75_barcode(

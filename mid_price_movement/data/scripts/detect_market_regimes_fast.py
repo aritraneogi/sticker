@@ -1,10 +1,13 @@
+import os
 import json
 import warnings
 from pathlib import Path
 import numpy as np
 import pandas as pd
 from sklearn.mixture import GaussianMixture
+from PIL import Image
 
+os.environ["MPLCONFIGDIR"] = "/tmp"
 warnings.filterwarnings("ignore")
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -13,9 +16,12 @@ EVAL_DIR   = ROOT_DIR.parent
 PRED_PATH  = EVAL_DIR / "sticker" / "variations" / "sticker_e56_n56_bs128_default" / "predictions.parquet"
 OUT_DIR    = ROOT_DIR / "analysis"
 GRAPHS_DIR = OUT_DIR / "graphs"
+MANUSCRIPT_FIGS_DIR = EVAL_DIR / "manuscript" / "figures"
+PAPER_FIGS_DIR      = EVAL_DIR.parent / "paper" / "figures"
 
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 GRAPHS_DIR.mkdir(parents=True, exist_ok=True)
+MANUSCRIPT_FIGS_DIR.mkdir(parents=True, exist_ok=True)
 
 RC = {
     "font.family":       "Times New Roman",
@@ -114,15 +120,55 @@ def generate_plots(mids, states, trans_matrix):
         ax.scatter(ticks_m[mask], mids[mask], color=colors[k], s=0.4, alpha=0.7,
                    label=labels[k], rasterized=False)
 
-    ax.set_xlabel("Trade Ticks (Millions)")
+    ax.set_xlabel("Ticks (millions)")
     ax.set_ylabel("Mid Price (USD)")
     ax.set_title("Hyperliquid BTC Perpetual Futures - Microstructural Market Regime Classification (11.9M Ticks)")
     ax.legend(loc="upper left", markerscale=12, frameon=True, facecolor="white",
               edgecolor="#cccccc", framealpha=0.9)
     fig.subplots_adjust(left=0.08, right=0.97, top=0.91, bottom=0.12)
-    fig.savefig(GRAPHS_DIR / "05_market_regime_classification.png", dpi=300)
+    out_uncropped = GRAPHS_DIR / "market_regime_classification.png"
+    fig.savefig(out_uncropped, dpi=300)
     plt.close()
-    print("  saved 05_market_regime_classification.png", flush=True)
+    print(f"  saved uncropped -> {out_uncropped}", flush=True)
+
+    # Tightest crop version for manuscript/figures/
+    crop_tight_regime_plot(out_uncropped, MANUSCRIPT_FIGS_DIR / "market_regime_classification.png")
+
+
+def crop_tight_regime_plot(src_path: Path, dst_path: Path):
+    im = Image.open(src_path).convert("RGB")
+    arr = np.array(im)
+    mask = ~np.all(arr >= 250, axis=2)
+
+    # Find row where title ends and gap before legend starts
+    row_has_ink = mask.any(axis=1)
+    r_title_start = np.where(row_has_ink)[0][0]
+    r_blank = None
+    for r in range(r_title_start + 10, len(row_has_ink)):
+        if not row_has_ink[r]:
+            r_blank = r
+            break
+
+    # Content starts after blank row below title
+    content_mask = mask.copy()
+    if r_blank is not None:
+        content_mask[:r_blank] = False
+
+    rows = np.any(content_mask, axis=1)
+    cols = np.any(content_mask, axis=0)
+    if rows.any() and cols.any():
+        rmin, rmax = np.where(rows)[0][[0, -1]]
+        cmin, cmax = np.where(cols)[0][[0, -1]]
+        cropped = im.crop((cmin, rmin, cmax + 1, rmax + 1))
+    else:
+        cropped = im
+
+    cropped.save(dst_path, dpi=(300, 300))
+    print(f"  saved tight crop -> {dst_path}", flush=True)
+
+    if PAPER_FIGS_DIR.exists():
+        cropped.save(PAPER_FIGS_DIR / "market_regime_classification.png", dpi=(300, 300))
+        print(f"  saved tight crop -> {PAPER_FIGS_DIR / 'market_regime_classification.png'}", flush=True)
 
 
 if __name__ == "__main__":

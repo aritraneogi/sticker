@@ -80,9 +80,9 @@ def figure_class_balance(stats):
     ax.set_title("Directional Movement Class Proportions Across Prediction Horizons")
     ax.legend(loc="upper right", frameon=True, facecolor="white", edgecolor="#cccccc")
     fig.subplots_adjust(left=0.09, right=0.97, top=0.91, bottom=0.13)
-    fig.savefig(GRAPHS_DIR / "03_directional_class_balance.png")
+    fig.savefig(GRAPHS_DIR / "directional_class_balance.png")
     plt.close()
-    print(f"  saved 03_directional_class_balance.png", flush=True)
+    print(f"  saved directional_class_balance.png", flush=True)
 
 
 def figure_acf(acf_data):
@@ -106,9 +106,9 @@ def figure_acf(acf_data):
     ax.set_title("Hyperliquid BTC Perpetual Futures - Raw Data Autocorrelation Function (ACF)")
     ax.legend(loc="upper right", frameon=True, facecolor="white", edgecolor="#cccccc")
     fig.subplots_adjust(left=0.09, right=0.97, top=0.91, bottom=0.14)
-    fig.savefig(GRAPHS_DIR / "07_autocorrelation_acf.png")
+    fig.savefig(GRAPHS_DIR / "autocorrelation_acf.png")
     plt.close()
-    print(f"  saved 07_autocorrelation_acf.png", flush=True)
+    print(f"  saved autocorrelation_acf.png", flush=True)
 
 
 def figure_mi(mi_data):
@@ -132,9 +132,9 @@ def figure_mi(mi_data):
     ax.set_title(r"Non-linear Mutual Information Across Prediction Horizons $h$")
     ax.legend(loc="upper right", frameon=True, facecolor="white", edgecolor="#cccccc")
     fig.subplots_adjust(left=0.09, right=0.97, top=0.91, bottom=0.14)
-    fig.savefig(GRAPHS_DIR / "08_mutual_information_horizon.png")
+    fig.savefig(GRAPHS_DIR / "mutual_information_horizon.png")
     plt.close()
-    print(f"  saved 08_mutual_information_horizon.png", flush=True)
+    print(f"  saved mutual_information_horizon.png", flush=True)
 
 
 def figure_transition_matrix(regimes_data):
@@ -169,9 +169,9 @@ def figure_transition_matrix(regimes_data):
     cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
     cbar.ax.tick_params(labelsize=8)
     fig.subplots_adjust(left=0.14, right=0.92, top=0.90, bottom=0.13)
-    fig.savefig(GRAPHS_DIR / "06_regime_transition_matrix.png")
+    fig.savefig(GRAPHS_DIR / "regime_transition_matrix.png")
     plt.close()
-    print(f"  saved 06_regime_transition_matrix.png", flush=True)
+    print(f"  saved regime_transition_matrix.png", flush=True)
 
 
 def main():

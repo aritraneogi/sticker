@@ -16,3 +16,4 @@ sticker/**/*.safetensors
 sticker/**/*.npz
 
 predictions.parquet
+manuscript/

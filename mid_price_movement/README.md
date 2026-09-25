@@ -1,4 +1,4 @@
-# Mid Price Movement
+# Mid-Price Movement
 
 The discriminative financial test evaluates whether models can classify real-time market price direction across transactions of limit order book dataset consisting market trade transactions over a full month, while continuously learning under a prequential (test-then-train) setting.
 
@@ -6,7 +6,7 @@ The discriminative financial test evaluates whether models can classify real-tim
 
 ## About
 
-Looking at the order flow feature set stream, predict whether the market mid price will move up (+1) or down (-1) on immediate future horizons (1, 2, 3, 5, 10, 20, 50, 100, 200, and 500 trades ahead). To focus the evaluation on informative directional movements, models are evaluated only on non-zero future mid-price movement trade ticks.
+Looking at the order flow feature set stream, predict whether the market mid-price will move up (+1) or down (-1) on immediate future horizons (1, 2, 3, 5, 10, 20, 50, 100, 200, and 500 trades ahead). To focus the evaluation on informative directional movements, models are evaluated only on non-zero future mid-price movement trade ticks.
 
 **Challenge**
 Unlike traditional machine learning test environment, financial markets constantly change. Models here must learn continually from live market data stream without stopping to retrain from scratch and output predicted classes. Once the future trade outcome occurs, the prediction is scored, and models are subjected to do inference and internal weight update from the observed outcome before the next trade arrives. This is referred to as prequential (test-then-train) environment.

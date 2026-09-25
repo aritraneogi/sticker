@@ -129,7 +129,7 @@ def generate_figures(df_acf, df_mi):
     ax.set_title("Hyperliquid BTC Perpetual Futures - Raw Data Autocorrelation Function (ACF)")
     ax.legend(loc="upper right", frameon=True, facecolor="white", edgecolor="#cccccc")
     fig.subplots_adjust(left=0.09, right=0.97, top=0.91, bottom=0.14)
-    fig.savefig(GRAPHS_DIR / "07_autocorrelation_acf.png")
+    fig.savefig(GRAPHS_DIR / "autocorrelation_acf.png")
     plt.close()
 
     hzs = df_mi["horizon"].values
@@ -144,7 +144,7 @@ def generate_figures(df_acf, df_mi):
     ax.set_title(r"Non-linear Mutual Information Across Prediction Horizons $h$")
     ax.legend(loc="upper right", frameon=True, facecolor="white", edgecolor="#cccccc")
     fig.subplots_adjust(left=0.09, right=0.97, top=0.91, bottom=0.14)
-    fig.savefig(GRAPHS_DIR / "08_mutual_information_horizon.png")
+    fig.savefig(GRAPHS_DIR / "mutual_information_horizon.png")
     plt.close()
 
     print(f"[GRAPH COMPLETE] Saved figures to {GRAPHS_DIR}", flush=True)

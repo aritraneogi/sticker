@@ -121,9 +121,9 @@ def generate_figures(mids, timestamps, df_horizons, df_stats):
     ax2.set_ylabel("Volatility (bps)")
     ax2.legend(loc="upper left", frameon=True, facecolor="white", edgecolor="#cccccc")
     fig.subplots_adjust(left=0.09, right=0.97, top=0.91, bottom=0.11, hspace=0.08)
-    fig.savefig(GRAPHS_DIR / "01_full_month_mid_price_path.png")
+    fig.savefig(GRAPHS_DIR / "full_month_mid_price_path.png")
     plt.close()
-    print("  saved 01_full_month_mid_price_path.png", flush=True)
+    print("  saved full_month_mid_price_path.png", flush=True)
 
     print("[GRAPH] Figure 2: Empirical Return Distributions ...", flush=True)
     fig, axes = plt.subplots(2, 5, figsize=(15, 6.2))
@@ -145,9 +145,9 @@ def generate_figures(mids, timestamps, df_horizons, df_stats):
     fig.suptitle(r"Empirical Mid-Price Return Distributions $P(\Delta M_h)$ Across All 10 Horizons",
                  fontsize=13, y=1.01)
     fig.subplots_adjust(left=0.06, right=0.97, top=0.92, bottom=0.10, hspace=0.52, wspace=0.40)
-    fig.savefig(GRAPHS_DIR / "02_empirical_return_distributions.png")
+    fig.savefig(GRAPHS_DIR / "empirical_return_distributions.png")
     plt.close()
-    print("  saved 02_empirical_return_distributions.png", flush=True)
+    print("  saved empirical_return_distributions.png", flush=True)
 
     print("[GRAPH] Figure 3: Directional Class Balance ...", flush=True)
     x = np.arange(len(HORIZONS))
@@ -163,9 +163,9 @@ def generate_figures(mids, timestamps, df_horizons, df_stats):
     ax.set_title("Directional Movement Class Proportions Across Prediction Horizons")
     ax.legend(loc="upper right", frameon=True, facecolor="white", edgecolor="#cccccc")
     fig.subplots_adjust(left=0.09, right=0.97, top=0.91, bottom=0.13)
-    fig.savefig(GRAPHS_DIR / "03_directional_class_balance.png")
+    fig.savefig(GRAPHS_DIR / "directional_class_balance.png")
     plt.close()
-    print("  saved 03_directional_class_balance.png", flush=True)
+    print("  saved directional_class_balance.png", flush=True)
 
     print("[GRAPH] Figure 4: Inter-Trade Arrival Time ...", flush=True)
     dt_ms   = np.diff(timestamps) / 1e6
@@ -178,9 +178,9 @@ def generate_figures(mids, timestamps, df_horizons, df_stats):
     ax.set_ylabel("Log Probability Density")
     ax.set_title(r"Marked Point Process: Inter-Trade Arrival Time Distribution $P(\Delta t)$")
     fig.subplots_adjust(left=0.10, right=0.97, top=0.91, bottom=0.13)
-    fig.savefig(GRAPHS_DIR / "04_inter_trade_arrival_times.png")
+    fig.savefig(GRAPHS_DIR / "inter_trade_arrival_times.png")
     plt.close()
-    print("  saved 04_inter_trade_arrival_times.png", flush=True)
+    print("  saved inter_trade_arrival_times.png", flush=True)
 
     print(f"[GRAPH COMPLETE] All figures written to {GRAPHS_DIR}", flush=True)
 
